@@ -1,17 +1,25 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
+
+//Перевод цельсия в кельвина/фарингейт
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите температуру");
+        try {
+            double temp = scanner.nextDouble();
+            System.out.println("Выбери какой расчет произвести: \n1. Перевод по шкале Фарингейта \n2. Перевод по шкале Кельвина");
+            int num = scanner.nextInt();
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+            if (num == 1) {
+                System.out.println(((temp*1.8)+32) + "°F");
+            } else if (num == 2) {
+                System.out.println((temp+273.15) + "K");
+            } else {
+                System.out.println("Ты что-то неправильно ввел! Перезагрузи программу и введи цифру 1 или 2");
+            }
+        } catch (Exception e) {
+            System.out.println("Ты что-то неправильно ввел! Перезагрузи программу и попробуй заново!");
         }
+
     }
 }
